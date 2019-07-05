@@ -10,20 +10,18 @@ var orm = {
             }
             cb(res);
         });
-    }
+    },
     insertOne: function (table, clos, vals, cb) {
 
         var dbQuery =
-            "INSERT INTO + table + 
-        "(" +
-            cols.toString() +
+            "INSERT INTO" + table + "(" +  cols.toString() +
             ") " +
             "VALUES(" +
             createQmarks(vals.lenth) +
             ") ";
 
         console.log(dbQuery);
-        connection.query(dbQuery), vals, function (err, res) {
+        connection.query(dbQuery, vals, function (err, res) {
             if (err) {
                 throw err;
             }
@@ -31,7 +29,7 @@ var orm = {
             cb(res);
         });
 
-    }
+    },
     updateOne: function (table, objcolVals, condition, cb) {
         var dbQuery =
             "UPDATE " +
@@ -42,19 +40,19 @@ var orm = {
             condition;
 
         console.log(dbQuery);
-        connection.query(dbQuery), vals, function (err, res) {
+        connection.query(dbQuery, vals, function (err, res) {
             if (err) {
                 throw err;
             }
 
             cb(res);
-        });
+        })
     },
     deleteOne: function (table, condition, cb) {
         var dbQuery = "DELETE FROM " + table + " WHERE " + condition;
         console.log(dbQuery);
 
-        connection.query(dbQuery), vals, function (err, res) {
+        connection.query(dbQuery, vals, function (err, res) {
             if (err) {
                 throw err;
             }
